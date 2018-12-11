@@ -12,7 +12,5 @@ Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
 Packaged: 2018-12-11 02:47:02 UTC; 41344
-Author: Runzhi Zhang [aut, cre],
-  Ke Xu [ctb, trl],
-  Zehao Yu [ctb, trl]
+Author: Runzhi Zhang [aut, cre],Ke Xu [ctb, trl],Zehao Yu [ctb, trl]
 Maintainer: Runzhi Zhang <runzhi.zhang@ufl.edu>
