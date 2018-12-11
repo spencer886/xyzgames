@@ -1,0 +1,72 @@
+---
+title: "some interesting games"
+author: "Runzhi Zhang, Ke Xu, Zehao Yu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(xyzgames)
+library(png)
+```
+
+## Introduction
+There is some numeric game like guess number or calculate the possibility for winning of some game like Texas Hold'em.
+
+## Functions
+#### guess
+This function is a game for the users to try to guess a random number created by r, the range of the number is from 1 to 200.
+To use this function, you can just input guess() and then input the number you guess.
+If the number you input is incorrect, it will return 'Wrong answer, it ranges from a to b'. (a, b is the range of correct answer.)
+If the number you input correct, it will return 'Good job, you are right!'.
+
+Here is an example about it.
+
+
+![](https://raw.githubusercontent.com/xkcococo/pictures/master/example_guess.png)
+
+
+#### guess2
+This function is a game for the users to try to guess a non-repeating four-digits for each digit from 1 to 9.
+To use this function, you can just input guess2() and then input the number you guess.
+If the number you input has only one digit which position and number are both correct and none of the digit has correct number and incorrect position, it will return "1A0B".
+If the number you input is correct, it will return 'Good job!!'.
+When you guess too much times, it will return 'Input answer to get the answer'. Then, if you input 'answer', it will return the correct answer of this game.
+
+Here is an example about it.
+
+![](https://raw.githubusercontent.com/xkcococo/pictures/master/example_guess2.png)
+
+#### Calc24
+This is a cheating function help you calculate the game called "24 points", the basic rule of this game is to calculate for the result 24 using 4 given number by +, -, *, and /. And it should be calculated by order regardless of operator precedence.
+To use this function, you can input Calc24() and then input the combine of the number you want to calculate in the brackets.
+The function will try to get a formula that has the result to be 24.
+Here is an example about it.
+```{r}
+Calc24(c(4,4,4,4))
+```
+We the result 24 using 4 given number by +, -, *, and /, and below is an example of no answer.
+```{r}
+Calc24(c(1,1,1,4))
+```
+
+#### texas_holdem
+This a function to calculate the possibility of getting each type of combition in the poker game texas holdem. 
+In our function, we simplify the game as we already know five cards(hole cards and the flop) or six cards(hole cards and the flop and the river), and we calculate the possibility of getting each type of combination of the best five card poker hand from any combination of the seven cards.
+Here is an example about it.
+```{r}
+texas_holdem(c("S2", "S3", "S4", "S9", "C6"))
+```
+Here we get the possibility of getting each type of combination of the best five card poker hand from any combination of the seven cards.If we know one more piece of the card, we can add it into the function.
+```{r}
+texas_holdem(c("S2", "S3", "S4", "S9", "C6","C7"))
+```
+Then we get the new possibility of getting each type of combination of the best five card poker hand from any combination of the seven cards for this six cards.
